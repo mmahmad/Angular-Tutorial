@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Hero } from './hero'
 
 @Component({
   selector: 'app-root',
@@ -16,16 +17,14 @@ import { Component } from '@angular/core';
     </li>
   </ul>
 
-  <h2>
+  <!--<h2>
     {{selectedHero.name}} details!
-  </h2>
+  </h2> -->
 
-  <div *ngIf="selectedHero">
-  <div><label>id: </label>{{selectedHero.id}}</div>
-  <div><label>name: </label>
-  <input [(ngModel)]="selectedHero.name" placeholder="name">
-  </div>
-  </div>
+  <hero-detail [hero]="selectedHero"></hero-detail>
+
+
+
 
   `,
   // templateUrl: './app.component.html',
@@ -114,11 +113,4 @@ onSelect(hero : Hero) : void{
 }
 
 
-}
-
-
-
-export class Hero {
-  id: number;
-  name: string;
 }
