@@ -1,3 +1,5 @@
+//a-component creates the snippet for component
+
 import { Component, Input } from '@angular/core';
 import { Hero } from './hero'
 
@@ -8,10 +10,10 @@ import { Hero } from './hero'
     // templateUrl: 'name.component.html'
     template:
     `
-    <div *ngIf="hero">
-        <div><label>id: </label>{{hero.id}}</div>
+    <div *ngIf="heroo">
+        <div><label>id: </label>{{heroo.id}}</div>
         <div>
-            <label>name: </label><input [(ngModel)]="hero.name" placeholder="name">
+            <label>name: </label><input [(ngModel)]="heroo.name" placeholder="name">
         </div>
   </div>
     
@@ -21,7 +23,7 @@ import { Hero } from './hero'
 export class HeroDetailComponent {
 
     // hero : Hero;
-    @Input() hero : Hero;
+    @Input() heroo : Hero;
     constructor() { }
 
     

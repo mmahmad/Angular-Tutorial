@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Hero } from './hero'
+import { HeroService } from "./hero.service";
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,7 @@ import { Hero } from './hero'
     {{selectedHero.name}} details!
   </h2> -->
 
-  <hero-detail [hero]="selectedHero"></hero-detail>
+  <hero-detail [heroo]="selectedHero"></hero-detail>
 
 
 
@@ -92,21 +93,11 @@ export class AppComponent {
   // };
 
   selectedHero : Hero;
+  heroes : Hero[];
 
-  private HEROES: Hero[] = [
-  { id: 11, name: 'Mr. Nice' },
-  { id: 12, name: 'Narco' },
-  { id: 13, name: 'Bombasto' },
-  { id: 14, name: 'Celeritas' },
-  { id: 15, name: 'Magneta' },
-  { id: 16, name: 'RubberMan' },
-  { id: 17, name: 'Dynama' },
-  { id: 18, name: 'Dr IQ' },
-  { id: 19, name: 'Magma' },
-  { id: 20, name: 'Tornado' }
-];
-
-heroes = this.HEROES;
+  constructor(private heroService: HeroService){
+    this.heroes = this.heroService.getHeroes();
+  }
 
 onSelect(hero : Hero) : void{
   this.selectedHero = hero;
