@@ -84,7 +84,7 @@ import { HeroService } from "./hero.service";
 })
 export class AppComponent implements OnInit {
   ngOnInit(): void {
-    
+    // throw new Error("Method not implemented.");
     // this.getHeroesSynchronously();
     this.getHeroesViaPromise();
   }
