@@ -84,8 +84,9 @@ import { HeroService } from "./hero.service";
 })
 export class AppComponent implements OnInit {
   ngOnInit(): void {
-    // throw new Error("Method not implemented.");
-    this.getHeroes();
+    
+    // this.getHeroesSynchronously();
+    this.getHeroesViaPromise();
   }
   title = 'Tour of Heroes';
   // hero = 'Windstorm';
@@ -104,8 +105,14 @@ export class AppComponent implements OnInit {
   }
 
 
-  getHeroes(){
-    this.heroes = this.heroService.getHeroes();
+  getHeroesSynchronously(){
+    this.heroes = this.heroService.getHeroesSynchronously(); //<-- when not using Promise. Simulates data acquistion in asynchronous
+  }
+
+  getHeroesViaPromise(){
+    this.heroService.getHeroes().then(heroes => {
+      this.heroes = heroes;
+    })
   }
 
 onSelect(hero : Hero) : void{

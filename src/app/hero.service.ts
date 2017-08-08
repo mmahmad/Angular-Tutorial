@@ -6,9 +6,14 @@ import { HEROES } from "./mock-heroes";
 
 @Injectable()
 export class HeroService {
+    
+    constructor() {}
 
-    constructor() { }
-    getHeroes(): Hero[] {
+    getHeroesSynchronously(): Hero[]{
         return HEROES;
     }
+
+    getHeroes(): Promise<Hero[]> {
+    return Promise.resolve(HEROES);
+}
 }
