@@ -96,6 +96,11 @@ export class AppComponent {
   heroes : Hero[];
 
   constructor(private heroService: HeroService){
+    
+  }
+
+
+  getHeroes(){
     this.heroes = this.heroService.getHeroes();
   }
 
